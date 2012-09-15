@@ -58,7 +58,6 @@ class JasperService {
         Collection reportData = null
 
         if (testModel?.data) {
-            log.info "Using chainModel.data"
             try {
                 reportData = testModel.data
             } catch (Throwable e) {
@@ -67,21 +66,17 @@ class JasperService {
         } else {
             testModel = this.getProperties().containsKey('model') ? model : null
             if (testModel?.data) {
-                log.info "Using model.data"
                 try {
                     reportData = testModel.data
                 } catch (Throwable e) {
                     throw new Exception("Expected model.data parameter to be a Collection, but it was ${model.data.class.name}", e)
                 }
             } else if (parameters?.data) {
-                log.info "Using params.data"
                 try {
                     reportData = parameters.data
                 } catch (Throwable e) {
                     throw new Exception("Expected data parameter to be a Collection, but it was ${parameters.data.class.name}", e)
                 }
-            } else {
-                log.info "No data supplied"
             }
         }
 
@@ -174,7 +169,6 @@ class JasperService {
                     throw new Exception("Unable to create temp folder: ${tempFolder.getPath()}")
                 }
             }
-            log.info "Using temp folder: " + tempFolder.getPath() + " (" + tempFolder.getAbsolutePath() + ")"
         }
     }
 
@@ -266,7 +260,6 @@ class JasperService {
             if (fieldNames.contains(p.getKey())) {
                 def fld = Class.forName(fields.find {it.name = p.getKey()}.clazz.name).getField(p.getKey())
                 exporter.setParameter(fld.get(fld.root.class), p.getValue());
-                log.info "Applied parameter ${p.getKey()} with value ${p.getValue()}"
             }
         }
     }

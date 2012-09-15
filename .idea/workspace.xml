@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="a9f9e2f5-52c1-4670-bcac-60fb9eda5ed8" name="Default" comment="">
+    <list default="true" readonly="true" id="a9f9e2f5-52c1-4670-bcac-60fb9eda5ed8" name="Default" comment="GPJASPER-39">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy" afterPath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperReportDef.groovy" afterPath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperReportDef.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/demo/ExamplePersonForReport.groovy" afterPath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/demo/ExamplePersonForReport.groovy" />
     </list>
     <ignored path="$USER_HOME$/.griffon/" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -103,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JasperReportDef.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JasperReportDef.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperReportDef.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="29" selection-start="1357" selection-end="1380" vertical-scroll-proportion="0.71428573">
+            <state line="61" column="38" selection-start="1872" selection-end="1882" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -160,7 +158,7 @@
       <file leaf-file-name="JasperService.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/services/org/codehaus/groovy/grails/plugins/jasper/JasperService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="65" selection-start="9290" selection-end="9300" vertical-scroll-proportion="-5.9666667">
+            <state line="198" column="82" selection-start="8427" selection-end="8437" vertical-scroll-proportion="-9.466666">
               <folding>
                 <element signature="e#674#704#0" expanded="true" />
               </folding>
@@ -177,11 +175,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JasperExportFormat.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JasperExportFormat.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="54" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="127" column="87" selection-start="5660" selection-end="5660" vertical-scroll-proportion="2.4285715">
+              <folding>
+                <element signature="e#673#718#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -720,7 +720,11 @@
       <created>1347709306567</created>
       <updated>1347709306567</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="GPJASPER-43">
+      <created>1347725784825</created>
+      <updated>1347725784825</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -747,7 +751,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21785714" sideWeight="0.67250824" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21785714" sideWeight="0.67250824" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3274918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3231106" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
@@ -796,7 +800,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix GPJASPER-47" />
+    <option name="LAST_COMMIT_MESSAGE" value="GPJASPER-43" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -825,6 +829,7 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="jasperreport 4.7 + poi 3.8" />
     <MESSAGE value="fix GPJASPER-47" />
+    <MESSAGE value="GPJASPER-43" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -938,22 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="54" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/org/codehaus/groovy/grails/plugins/jasper/JasperService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="65" selection-start="9290" selection-end="9300" vertical-scroll-proportion="-5.9666667">
-          <folding>
-            <element signature="e#674#704#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="19" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-15.782609">
@@ -961,10 +950,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/org/codehaus/groovy/grails/plugins/jasper/JasperService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="82" selection-start="8427" selection-end="8437" vertical-scroll-proportion="-9.466666">
+          <folding>
+            <element signature="e#674#704#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperReportDef.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="29" selection-start="1357" selection-end="1380" vertical-scroll-proportion="0.71428573">
+        <state line="61" column="38" selection-start="1872" selection-end="1882" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="87" selection-start="5660" selection-end="5660" vertical-scroll-proportion="2.4285715">
+          <folding>
+            <element signature="e#673#718#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

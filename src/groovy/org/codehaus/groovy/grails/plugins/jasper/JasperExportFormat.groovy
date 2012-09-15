@@ -17,6 +17,7 @@
 package org.codehaus.groovy.grails.plugins.jasper
 
 import net.sf.jasperreports.engine.JRExporter
+
 import net.sf.jasperreports.engine.export.JRPdfExporter
 import net.sf.jasperreports.engine.export.JRHtmlExporter
 import net.sf.jasperreports.engine.export.JRCsvExporter
@@ -124,6 +125,7 @@ public enum JasperExportFormat implements Serializable{
       case XML_FORMAT: return JRXmlExporterParameter.getFields()
       case CSV_FORMAT: return JRCsvExporterParameter.getFields()
       case XLS_FORMAT: return JRXlsExporterParameter.getFields()
+      case XLSX_FORMAT: return JRXlsExporterParameter.getFields()
       case RTF_FORMAT: return JRTextExporterParameter.getFields()
       case DOCX_FORMAT: return JRDocxExporterParameter.getFields()
       default: return null

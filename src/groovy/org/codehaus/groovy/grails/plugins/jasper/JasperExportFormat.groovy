@@ -42,7 +42,7 @@ import net.sf.jasperreports.engine.export.JRHtmlExporterParameter
  * The supported file formats with their mimetype and file extension.
  * @author Sebastian Hohns
  */
-public enum JasperExportFormat {
+public enum JasperExportFormat implements Serializable{
   PDF_FORMAT("application/pdf", "pdf", false),
   HTML_FORMAT("text/html", "html", true),
   XML_FORMAT("text/xml", "xml", false),

@@ -33,7 +33,7 @@ import net.sf.jasperreports.engine.JasperPrint
  * data(reportData and/or parameters) needed to fill the report.
  * @author Sebastian Hohns 2010
  */
-public class JasperReportDef {
+public class JasperReportDef implements Serializable{
 
   /**
    * The name of the report file without extension.

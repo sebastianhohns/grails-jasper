@@ -1,22 +1,18 @@
 class JasperGrailsPlugin {
-    def version = "1.5.3"
+    def version = "1.6.0"
     def grailsVersion = "1.3.0 > *"
 
     def developers = [
-            [name: "Sebastian Hohns", email: "sebastian.hohns@googlemail.com"],
-            [name: "Marcos Pereira", email: "mfpereira@gmail.com"]]
+            [name: "Sebastian Hohns", email: "sebastian.hohns@googlemail.com"]]
 
     def license = "Apache 2.0"
     def issueManagement = [system: "JIRA", url: "http://jira.grails.org/browse/GPJASPER"]
-    def scm = [url: "http://svn.grails-plugins.codehaus.org/browse/grails-plugins/grails-jasper"]
+    def scm = [url: "https://github.com/sebastianhohns/grails-jasper"]
 
     def author = "Sebastian Hohns"
     def authorEmail = "sebastian.hohns@googlemail.com"
 
     List pluginExcludes = [
-            'grails-app/views/**',
-            'grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy',
-            'src/groovy/org/codehaus/groovy/grails/plugins/jasper/demo/**',
             'docs/**',
             'src/docs/**'
     ]

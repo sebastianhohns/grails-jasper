@@ -2,184 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="a9f9e2f5-52c1-4670-bcac-60fb9eda5ed8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Jasper-test.launch" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Jasper.launch" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Jasper.tmproj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/inherit.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-0.7.6.1.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-0.7.7.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-0.8.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-0.9.5.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-0.9.7.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-0.9.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.0.0.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.0.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.1.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.2.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.3.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.4.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.6.2.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.6.3.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.1.6.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.2.1.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.2.2.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.2.3-SNAPSHOT.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.2.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.3.0.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.3.1-SNAPSHOT.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5-Snapshot.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.1.zip.md5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.1.zip.sha1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.1.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.2.zip.md5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.2.zip.sha1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.2.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.3.zip.md5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.3.zip.sha1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.3.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-1.5.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/apple-touch-icon-retina.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/apple-touch-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/grails_logo.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/grails_logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/CSV.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/DOCX.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/HTML.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/ODS.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/ODT.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/PDF.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/PPTX.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/RTF.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/TEXT.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/XLS.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/XLSX.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/XML.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/icons/page_white_acrobat.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/leftnav_btm.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/leftnav_midstretch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/leftnav_top.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/database_add.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/database_delete.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/database_edit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/database_save.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/database_table.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/exclamation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/house.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/information.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/shadow.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/sorted_asc.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/skin/sorted_desc.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/spinner.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/springsource.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JasperGrailsPlugin.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NOTICE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/DefaultPackage/JasperGrailsPlugin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/DefaultPackage/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/DefaultPackage/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/allclasses-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/Config.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/DataSource.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/ExamplePersonForReport.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/JasperController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/JasperPluginTestCase.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/JasperService.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/JasperTagLib.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/JasperTagLibTests.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/UrlMappings.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/bin/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/deprecated-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/conf/Config.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/conf/DataSource.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/conf/UrlMappings.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/conf/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/conf/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/controllers/ExamplePersonForReport.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/controllers/JasperController.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/controllers/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/controllers/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/services/JasperService.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/services/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/services/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/taglib/JasperTagLib.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/taglib/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/grails-app/taglib/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/help-doc.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/index-all.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/overview-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/overview-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/scripts/_Install.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/scripts/_Upgrade.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/scripts/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/scripts/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/stylesheet.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/test/integration/JasperPluginTestCase.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/test/integration/JasperTagLibTests.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/test/integration/package-frame.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/gapi/test/integration/package-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperController.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/i18n/jasper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/i18n/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/org/codehaus/groovy/grails/plugins/jasper/JasperService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/taglib/org/codehaus/groovy/grails/plugins/jasper/JasperTagLib.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/error.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-jasper-grailsPlugins.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ivy.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ivysettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-1.5.1-plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-1.5.1.pom" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-1.5.2-plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-1.5.2.pom" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-1.5.3-plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-1.5.3.pom" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper-grailsPlugins.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jasper.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugin.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/_Install.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/_Upgrade.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperReportDef.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/demo/ExamplePersonForReport.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stacktrace.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/integration/JasperPluginTestCase.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/integration/JasperTagLibTests.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/WEB-INF/applicationContext.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/WEB-INF/sitemesh.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/WEB-INF/tld/c.tld" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/WEB-INF/tld/fmt.tld" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/WEB-INF/tld/grails.tld" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/WEB-INF/tld/spring.tld" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/css/errors.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/css/mobile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/index.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/reports/sample-jasper-plugin.jrxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/reports/sample-list-domain-classes-2.jrxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/reports/sample-list-domain-classes-3-chart.jrxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/reports/sample-list-domain-classes.jrxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/reports/w_iReport.jrxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JasperGrailsPlugin.groovy" afterPath="$PROJECT_DIR$/JasperGrailsPlugin.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp" afterPath="$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp" />
     </list>
     <ignored path="$USER_HOME$/.griffon/" />
     <ignored path="$USER_HOME$/.grails/" />
@@ -271,7 +97,7 @@
       <file leaf-file-name="JasperDemoController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="19" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-0.65217394">
+            <state line="44" column="19" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-15.782609">
               <folding />
             </state>
           </provider>
@@ -295,19 +121,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JasperGrailsPlugin.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="JasperGrailsPlugin.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JasperGrailsPlugin.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="24" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
+            <state line="45" column="66" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.2857143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuildConfig.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BuildConfig.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="60" selection-start="688" selection-end="688" vertical-scroll-proportion="0.5153707">
+            <state line="15" column="74" selection-start="602" selection-end="602" vertical-scroll-proportion="-1.6727272">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="58" selection-start="1698" selection-end="1698" vertical-scroll-proportion="-9.574468">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -359,16 +203,16 @@
         <option value="$PROJECT_DIR$/plugin.xml" />
         <option value="$PROJECT_DIR$/test/integration/JasperPluginTestCase.groovy" />
         <option value="$PROJECT_DIR$/test/integration/JasperTagLibTests.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp" />
         <option value="$PROJECT_DIR$/grails-app/taglib/org/codehaus/groovy/grails/plugins/jasper/JasperTagLib.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperReportDef.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/org/codehaus/groovy/grails/plugins/jasper/JasperService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy" />
-        <option value="$PROJECT_DIR$/JasperGrailsPlugin.groovy" />
         <option value="$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy" />
+        <option value="$PROJECT_DIR$/JasperGrailsPlugin.groovy" />
       </list>
     </option>
   </component>
@@ -417,7 +261,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -429,6 +273,47 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jasper-grailsPlugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="Favorites" />
     </panes>
   </component>
@@ -722,6 +607,11 @@
       <created>1282759303810</created>
       <updated>1282759303810</updated>
     </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <created>1347708410218</created>
+      <updated>1347708410218</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -738,17 +628,17 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32916668" sideWeight="0.67141294" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.67250824" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32944787" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32858709" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858709" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21785714" sideWeight="0.67250824" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3274918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21785714" sideWeight="0.67250824" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3274918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3231106" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32922733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -867,11 +757,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/grails-2.0.0/lib/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.0.RELEASE.jar!/org/springframework/web/servlet/mvc/SimpleControllerHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="56" selection-start="481" selection-end="481" vertical-scroll-proportion="0.32397407" />
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/grails-2.0.0/lib/com.springsource.springloaded/springloaded-core/jars/springloaded-core-1.0.2.jar!/com/springsource/loaded/ri/ReflectiveInterceptor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="35" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.33264464" />
@@ -902,13 +787,6 @@
         <state line="14" column="35" selection-start="715" selection-end="715" vertical-scroll-proportion="0.34917355" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="19" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-0.65217394">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperController.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="6" selection-start="797" selection-end="797" vertical-scroll-proportion="0.0" />
@@ -919,19 +797,9 @@
         <state line="126" column="139" selection-start="3630" selection-end="3756" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JasperGrailsPlugin.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="24" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/org/codehaus/groovy/grails/plugins/jasper/JasperService.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="28" selection-start="2054" selection-end="2054" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/groovy/org/codehaus/groovy/grails/plugins/jasper/JasperExportFormat.groovy">
@@ -939,9 +807,42 @@
         <state line="127" column="54" selection-start="5668" selection-end="5691" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/jasperDemo/demo.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="58" selection-start="1698" selection-end="1698" vertical-scroll-proportion="-9.574468">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/org/codehaus/groovy/grails/plugins/jasper/JasperDemoController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="19" selection-start="1528" selection-end="1528" vertical-scroll-proportion="-15.782609">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="60" selection-start="688" selection-end="688" vertical-scroll-proportion="0.5153707">
+        <state line="15" column="74" selection-start="602" selection-end="602" vertical-scroll-proportion="-1.6727272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JasperGrailsPlugin.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="66" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.2857143">
           <folding />
         </state>
       </provider>

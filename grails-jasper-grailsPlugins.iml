@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$USER_HOME$/.grails/1.3.3/projects/grails-jasper/plugins/hibernate-1.3.3" />
+    <content url="file://$USER_HOME$/.grails/1.3.3/projects/grails-jasper/plugins/tomcat-1.3.3">
+      <sourceFolder url="file://$USER_HOME$/.grails/1.3.3/projects/grails-jasper/plugins/tomcat-1.3.3/src/groovy" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="grails-1.3.3" level="application" />
+    <orderEntry type="module-library" exported="">
+      <library name="Grails User Library">
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.keypoint/png-encoder/jars/png-encoder-1.5.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/net.sourceforge.jexcelapi/jxl/jars/jxl-2.6.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/rhino/js/jars/js-1.7R1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.poi/poi/jars/poi-3.5-FINAL.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/jfree/jfreechart/jars/jfreechart-1.0.12.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/jfree/jcommon/jars/jcommon-1.0.15.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/com.lowagie/itext/jars/itext-2.1.7.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/net.sf.jasperreports/jasperreports/jars/jasperreports-3.7.4.jar!/" />
+          <root url="file://$USER_HOME$/.grails/1.3.3/projects/grails-jasper/plugins/tomcat-1.3.3/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.grails/1.3.3/projects/grails-jasper/plugins/tomcat-1.3.3/lib" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+

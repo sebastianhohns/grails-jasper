@@ -1,0 +1,34 @@
+<project xmlns='http://maven.apache.org/POM/4.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd'>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.grails.plugins</groupId>
+  <artifactId>jasper</artifactId>
+  <packaging>zip</packaging>
+  <version>1.5.1</version>
+  <name>Easily launch Jasper reports from a Grails application.</name>
+  <description>
+	This plugin adds easy support for launching jasper reports from GSP pages.
+	After installing this plugin, run your application and request (app-url)/jasper/demo for a demonstration and instructions.
+    </description>
+  <url>http://www.grails.org/plugin/jasper</url>
+  <developers>
+    <developer>
+      <name>Sebastian Hohns</name>
+      <email>sebastian.hohns@googlemail.com</email>
+    </developer>
+    <developer>
+      <name>Sebastian Hohns</name>
+      <email>sebastian.hohns@googlemail.com</email>
+    </developer>
+    <developer>
+      <name>Marcos Pereira</name>
+      <email>mfpereira@gmail.com</email>
+    </developer>
+  </developers>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.grails.org/browse/GPJASPER</url>
+  </issueManagement>
+  <scm>
+    <url>http://svn.grails-plugins.codehaus.org/browse/grails-plugins/grails-jasper</url>
+  </scm>
+</project>

@@ -45,12 +45,12 @@ class JasperService {
      * @return reportDef
      */
     public JasperReportDef buildReportDefinition(parameters, locale, testModel) {
-        JasperReportDef reportDef = new JasperReportDef(name: parameters._file, parameters: parameters)
+        JasperReportDef reportDef = new JasperReportDef(name: parameters._file, parameters: parameters, locale: locale)
 
         reportDef.fileFormat = JasperExportFormat.determineFileFormat(parameters._format)
         reportDef.reportData = getReportData(testModel, parameters)
-        reportDef.jasperPrinter = generatePrinter(reportDef)
         reportDef.contentStream = generateReport(reportDef)
+        reportDef.jasperPrinter = generatePrinter(reportDef)
 
         return reportDef
     }

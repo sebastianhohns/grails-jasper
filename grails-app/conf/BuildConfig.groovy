@@ -32,7 +32,3 @@ grails.project.dependency.resolution = {
     }
 
 }
-
- grails.project.dependency.distribution = {
-        portal id: "beta", url: "http://beta.grails.org/plugin/"
-    }

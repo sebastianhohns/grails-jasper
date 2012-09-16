@@ -24,6 +24,7 @@ import net.sf.jasperreports.engine.export.JRXlsExporterParameter
 import net.sf.jasperreports.engine.util.JRProperties
 import org.springframework.core.io.Resource
 import net.sf.jasperreports.engine.*
+import groovy.sql.Sql
 
 /*
  * Grails service to generate jasper reports. Call one of the three generateReport methods to
@@ -31,12 +32,11 @@ import net.sf.jasperreports.engine.*
  * @author Sebastian Hohns
  */
 class JasperService {
+
+    def dataSource
+    static transactional = true
+
     final boolean FORCE_TEMP_FOLDER = false;
-
-    boolean transactional = true
-    javax.sql.DataSource dataSource
-
-
     /**
      * Build a JasperReportDef form a parameter map. This is used by the taglib.
      * @param parameters
@@ -45,7 +45,7 @@ class JasperService {
      * @return reportDef
      */
     public JasperReportDef buildReportDefinition(parameters, locale, testModel) {
-        JasperReportDef reportDef = new JasperReportDef(name: parameters._file, parameters: parameters, locale: locale)
+        JasperReportDef reportDef = new JasperReportDef(name: parameters._file, parameters: parameters,locale: locale)
 
         reportDef.fileFormat = JasperExportFormat.determineFileFormat(parameters._format)
         reportDef.reportData = getReportData(testModel, parameters)
@@ -230,21 +230,18 @@ class JasperService {
                 jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters, jrBeanCollectionDataSource)
             }
         } else {
-            if(dataSource==null) {
-                dataSource = org.codehaus.groovy.grails.commons.ApplicationHolder.application.mainContext.dataSource
-            }
+            Sql sql = new Sql(dataSource)
 
-            java.sql.Connection conn = dataSource.getConnection()
             try {
                 if (resource.getFilename().endsWith('.jasper')) {
-                    jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters, conn)
+                    jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters,  sql.connection)
                 } else {
                     forceTempFolder()
-                    jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters, conn)
+                    jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters,  sql.connection)
                 }
             }
             finally {
-                conn.close()
+                sql.close()
             }
         }
 

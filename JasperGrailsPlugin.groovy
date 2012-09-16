@@ -5,7 +5,7 @@ class JasperGrailsPlugin {
     def developers = [
             [name: "Sebastian Hohns", email: "sebastian.hohns@googlemail.com"]]
 
-    def license = "Apache 2.0"
+    def license = "Apache License 2.0"
     def issueManagement = [system: "JIRA", url: "http://jira.grails.org/browse/GPJASPER"]
     def scm = [url: "https://github.com/sebastianhohns/grails-jasper"]
 

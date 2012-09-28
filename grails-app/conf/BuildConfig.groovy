@@ -30,5 +30,14 @@ grails.project.dependency.resolution = {
 
         compile('org.apache.poi:poi:3.8')
     }
-
+    plugins{
+        if (appName == "jasper") {
+            compile (":hibernate:$grailsVersion") {
+                export = false
+            }
+            build(":tomcat:$grailsVersion",":maven-publisher:0.8.1") {
+                export = false
+            }
+        }
+    }
 }

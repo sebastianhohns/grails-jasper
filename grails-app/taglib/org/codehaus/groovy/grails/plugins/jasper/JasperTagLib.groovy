@@ -26,6 +26,7 @@ class JasperTagLib {
     def static requiredAttrs = ['jasper','format']
 
 // tags existing as of plugin version 0.9
+    @Deprecated
     def jasperReport = {attrs, body ->
         validateAttributes(attrs)
         String jasperName = attrs['jasper']
@@ -135,6 +136,7 @@ class JasperTagLib {
     }
 
 //Beginning of the new Tags added at plugin version 0.9.5
+    @Deprecated
     def jasperForm = {attrs, body ->
         if(!attrs['jasper']) {
             throw new Exception(message(code:"jasper.taglib.missingAttribute", args:'jasper'))
@@ -164,6 +166,7 @@ class JasperTagLib {
     }
 
     //One button for each type of output you would like to make available.
+    @Deprecated
     def jasperButton = {attrs ->
         if(!attrs['format']){throw new Exception(message(code:"jasper.taglib.missingAttribute", args:'format'))}
         String buttonClass = attrs['class']

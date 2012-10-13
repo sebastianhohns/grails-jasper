@@ -22,8 +22,8 @@
   </repositories>
   <dependencies>
     <compile>
-      <dependency group='net.sf.jasperreports' name='jasperreports' version='4.7.0' />
       <dependency group='org.apache.poi' name='poi' version='3.8' />
+      <dependency group='net.sf.jasperreports' name='jasperreports' version='4.7.0' />
     </compile>
   </dependencies>
   <plugins />

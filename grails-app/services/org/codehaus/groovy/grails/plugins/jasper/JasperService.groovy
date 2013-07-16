@@ -247,6 +247,7 @@
             }
             finally {
                 sql.close()
+                connection.close()
             }
         }
 

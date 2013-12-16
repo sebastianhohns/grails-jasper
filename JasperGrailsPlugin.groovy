@@ -1,5 +1,5 @@
 class JasperGrailsPlugin {
-    def version = "1.7"
+    def version = "1.7-SNAPSHOT"
     def grailsVersion = "2.1.0 > *"
 
     def developers = [

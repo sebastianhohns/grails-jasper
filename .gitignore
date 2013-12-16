@@ -1,0 +1,17 @@
+# Eclipse
+.classpath
+.project
+.settings/
+target-eclipse/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+target
+*.log
+*.zip
+plugin.xml
+/docs/
+.DS_Store

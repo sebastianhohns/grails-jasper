@@ -1,13 +1,11 @@
 class JasperGrailsPlugin {
     def version = "1.7-SNAPSHOT"
     def grailsVersion = "2.1.0 > *"
-
-    def developers = [
-            [name: "Sebastian Hohns", email: "sebastian.hohns@googlemail.com"]]
-
+    def author = "Craig Andrews"
+    def authorEmail = "candrews@integralblue.com"
     def license = "Apache License 2.0"
     def issueManagement = [system: "JIRA", url: "http://jira.grails.org/browse/GPJASPER"]
-    def scm = [url: "https://github.com/sebastianhohns/grails-jasper"]
+    def scm = [url: "https://github.com/candrews/grails-jasper"]
 
     List pluginExcludes = [
             'docs/**',

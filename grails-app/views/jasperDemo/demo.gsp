@@ -456,7 +456,7 @@
   <pre>
     class YourClass {
     def jasperService
-    public void yourMethod() {
+    void yourMethod() {
     def reportDef = new JasperReportDef(name:'your_report.jasper',
     fileFormat:JasperExportFormat.PDF_FORMAT
     )

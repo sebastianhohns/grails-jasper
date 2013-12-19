@@ -11,33 +11,31 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 
 import org.codehaus.groovy.grails.web.util.WebUtils
 import org.springframework.web.context.request.RequestContextHolder
-import org.springframework.context.ApplicationContext
-import org.junit.runner.RunWith
 
 /**
  * @author Craig Jones 11-Aug-2008
  */
 class JasperTagLibTests extends JasperPluginTestCase {
-    final String SCRIPT_PART = """<script type="text/javascript"> function submit_myreport(link) { link.parentNode._format.value = link.title;
+    static final String SCRIPT_PART = """<script type="text/javascript"> function submit_myreport(link) { link.parentNode._format.value = link.title;
       link.parentNode.submit(); return false; } </script> """
 
-    def grailsApplication       
+    def grailsApplication
 
     void testJasperPluginTag_FormatRequired() {
         def template = '<g:jasperReport jasper="myreport"/>'
-        shouldFail(Exception) {
+        shouldFail {
             applyTemplate(template)
         }
     }
 
     void testJasperPluginTag_JasperRequired() {
         def template = '<g:jasperReport format="pdf" />'
-        def errMsg = shouldFail(Exception) {
+        def errMsg = shouldFail {
             applyTemplate(template)
         }
     }
@@ -106,7 +104,8 @@ class JasperTagLibTests extends JasperPluginTestCase {
 
     // TODO passing thru ID and CLASS attributes
 
-    void setUp() {
+    protected void setUp() {
+        super.setUp()
         RequestContextHolder.currentRequestAttributes().currentRequest."${WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE}" = '/myapp'
-        }
+    }
 }

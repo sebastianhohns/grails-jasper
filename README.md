@@ -1,5 +1,5 @@
 # Grails Jasper Plugin
-[![Build Status](https://api.travis-ci.org/sebastianhohns/grails-jasper.png)](http://travis-ci.org/sebastianhohns/grails-jasper)
+[![Build Status](https://api.travis-ci.org/candrews/grails-jasper.png)](http://travis-ci.org/candrews/grails-jasper)
 
 # Usage
 

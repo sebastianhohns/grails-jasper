@@ -11,19 +11,19 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 
 package org.codehaus.groovy.grails.plugins.jasper
 
-/* 
+/**
  * @author mfpereira 2007
  */
 class JasperTagLib {
 
     JasperService jasperService
 
-    def static requiredAttrs = ['jasper','format']
+    static requiredAttrs = ['jasper','format']
 
 // tags existing as of plugin version 0.9
     @Deprecated
@@ -45,9 +45,10 @@ class JasperTagLib {
         boolean buttonsBelowBody = (attrs['buttonPosition'] ?: 'top') == 'bottom'
 
         String controller = attrs['controller'] ?: "jasper"
-        String action = attrs['action'] ?: "";
+        String action = attrs['action'] ?: ""
 
-        if (body()) {
+        def bodyContent = body()
+        if (bodyContent) {
             // The tag has a body that, presumably, includes input field(s), so we need to wrap it in a form
             out << renderJavascriptForForm(jasperNameNoPunct)
             out << """<form class="${formClass}"${idAttr ? ' id="' + idAttr + '"' : ''} name="${jasperName}" action="${appPath}/${controller}/${action}">"""
@@ -61,11 +62,11 @@ class JasperTagLib {
             }
 
             if (buttonsBelowBody) {
-                out << description << body() << "&nbsp;"
+                out << description << bodyContent << "&nbsp;"
                 out << renderButtons(attrs, delimiter, delimiterBefore, delimiterAfter, buttonClass, jasperNameNoPunct, webAppPath,heightAttr)
             } else {
                 out << renderButtons(attrs, delimiter, delimiterBefore, delimiterAfter, buttonClass, jasperNameNoPunct, webAppPath,heightAttr)
-                out << "&nbsp;" << description << body()
+                out << "&nbsp;" << description << bodyContent
             }
 
             out << "</form>"
@@ -82,7 +83,6 @@ class JasperTagLib {
             }
             result += delimiterAfter+' '+description
             out << result
-
         }
     }
 
@@ -150,7 +150,7 @@ class JasperTagLib {
         String reportName = attrs['name'] ?: ""
         String formClass = attrs['class'] ?: "jasperReport"
         String controller = attrs['controller'] ?: "jasper"
-        String action = attrs['action'] ?: "";
+        String action = attrs['action'] ?: ""
 
         out << """
             <form class="${formClass}" name="${jasperName}" action="${appPath}/${controller}/${action}/${id}">

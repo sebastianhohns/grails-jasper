@@ -16,6 +16,8 @@
 
 package org.codehaus.groovy.grails.plugins.jasper
 
+import org.codehaus.groovy.grails.web.taglib.GroovyPageAttributes;
+
 /**
  * @author mfpereira 2007
  */
@@ -23,16 +25,24 @@ class JasperTagLib {
 
     JasperService jasperService
 
-    static requiredAttrs = ['jasper','format']
+    final static requiredAttrs = ['jasper','format']
 
-// tags existing as of plugin version 0.9
-    @Deprecated
-    def jasperReport = {attrs, body ->
+    /* The jasperReport tag generates a button for every file specified file format. With a click on one of these icons you generate the report which is returned as the response.
+     * Note that this tag should not be nested with a &lt;form&gt; element, as it uses a &lt;form&gt; element in its implementation, and nesting of &lt;form&gt;s is not allowed.
+     * 
+     * @attr jasper - REQUIRED filepath, relative to your configured report folder, of the report, no file extension needed
+     * @attr format - REQUIRED supply the file formats you want to use in a simple list
+     * @attr name - OPTIONAL name of the report
+     * @attr delimiter - OPTIONAL delimiter between the icons representing the file formats.
+     * @attr delimiterBefore - OPTIONAL delimiter in front of the icons
+     * @attr delimiterAfter - OPTIONAL delimiter at the end of the icons
+     * @attr description - OPTIONAL description of the report
+     * @attr buttonPosition - OPTIONAL position of the icons (top or below)
+     */
+	def jasperReport = { GroovyPageAttributes attrs, body ->
         validateAttributes(attrs)
         String jasperName = attrs['jasper']
         String jasperNameNoPunct = jasperName.replaceAll(/[^a-zA-Z0-9]/, '')
-        String appPath = grailsAttributes.getApplicationUri(request)
-        String webAppPath = appPath + pluginContextPath
         String idAttr = attrs['id'] ?: ""
         String reportName = attrs['name'] ?: ""
         String delimiter = attrs['delimiter'] ?: "|"
@@ -51,7 +61,7 @@ class JasperTagLib {
         if (bodyContent) {
             // The tag has a body that, presumably, includes input field(s), so we need to wrap it in a form
             out << renderJavascriptForForm(jasperNameNoPunct)
-            out << """<form class="${formClass}"${idAttr ? ' id="' + idAttr + '"' : ''} name="${jasperName}" action="${appPath}/${controller}/${action}">"""
+            out << """<form class="${formClass}"${idAttr ? ' id="' + idAttr + '"' : ''} name="${jasperName}" action="${g.createLink(controller: controller, action: action)}">"""
             out << """<input type="hidden" name="_format" />
 <input type="hidden" name="_name" value="${reportName}" />
 <input type="hidden" name="_file" value="${jasperName}" />
@@ -63,9 +73,9 @@ class JasperTagLib {
 
             if (buttonsBelowBody) {
                 out << description << bodyContent << "&nbsp;"
-                out << renderButtons(attrs, delimiter, delimiterBefore, delimiterAfter, buttonClass, jasperNameNoPunct, webAppPath,heightAttr)
+                out << renderButtons(attrs, delimiter, delimiterBefore, delimiterAfter, buttonClass, jasperNameNoPunct,heightAttr)
             } else {
-                out << renderButtons(attrs, delimiter, delimiterBefore, delimiterAfter, buttonClass, jasperNameNoPunct, webAppPath,heightAttr)
+                out << renderButtons(attrs, delimiter, delimiterBefore, delimiterAfter, buttonClass, jasperNameNoPunct,heightAttr)
                 out << "&nbsp;" << description << bodyContent
             }
 
@@ -73,26 +83,20 @@ class JasperTagLib {
         } else {
             /*
              * The tag has no body, so we don't need a whole form, just a link.
-             * Note that GSP processing is not recursive, so we cannot use a g:link here.  It has to already be an A tag.
              */
             String result = delimiterBefore
-            attrs['format'].toUpperCase().split(",").eachWithIndex {it, i ->
+            attrs['format'].toUpperCase().split(",").eachWithIndex {String it, i ->
+				it = it.trim()
                 if (i > 0) result += delimiter
-                result += """ <a class="${buttonClass}" title="${it.trim()}" href="${appPath}/${controller}/${action}?_format=${it.trim().encodeAsHTML()}&amp;_name=${reportName.trim().encodeAsHTML()}&amp;_file=${jasperName.trim().encodeAsHTML()}"> """
-                result += """<img border="0" alt="${it.trim()}" src="${webAppPath}/images/icons/${it.trim()}.gif"${heightAttr} /></a> """
+                result += """ <a class="${buttonClass}" title="${it}" href="${g.createLink(controller: controller, action: action, params: [_format: it, _name: reportName, _file: jasperName])}"> """
+                result += """<img border="0" alt="${it}" src="${g.resource(plugin: "jasper", dir:"images/icons",file:"${it}.gif")}"${heightAttr} /></a> """
             }
             result += delimiterAfter+' '+description
             out << result
         }
     }
 
-    def addReportParameter = {attrs, body ->
-    		def parameterName = attrs['name']
-    		def parameterType = attrs['type']
-    		out << parameterName + parameterType
-    }
-
-    protected String renderJavascriptForForm(jasperNameNoPunct) {
+    protected String renderJavascriptForForm(String jasperNameNoPunct) {
         // function gets a unique name in case this tag is repeated on the page
         """
       <script type="text/javascript">
@@ -105,20 +109,20 @@ class JasperTagLib {
         """
         }
 
-    protected String renderButtons(attrs, delimiter, String delimiterBefore, String delimiterAfter, buttonClass, jasperNameNoPunct, webAppPath,heightAttr) {
+    protected String renderButtons(GroovyPageAttributes attrs, delimiter, String delimiterBefore, String delimiterAfter, String buttonClass, String jasperNameNoPunct, String heightAttr) {
         String result = delimiterBefore
-        attrs['format'].toUpperCase().split(",").eachWithIndex {it, i ->
+        attrs['format'].toUpperCase().split(",").eachWithIndex {String it, int i ->
             if (i > 0) result += delimiter
             result += """
         <a href="#" class="${buttonClass}" title="${it.trim()}" onclick="return submit_${jasperNameNoPunct}(this)">
-        <img border="0"  alt="${it.trim()}" src="${webAppPath}/images/icons/${it.trim()}.gif"${heightAttr} /></a>
+        <img border="0"  alt="${it.trim()}" src="${g.resource(plugin: "jasper", dir:"images/icons",file:"${it.trim()}.gif")}"${heightAttr} /></a>
       """
         }
         result += delimiterAfter
         return result
     }
 
-    private void validateAttributes(attrs) {
+    private void validateAttributes(GroovyPageAttributes attrs) {
       JasperTagLib.requiredAttrs.each {attrName ->
           if (!attrs[attrName]) {
             // TODO more appropriate Exception type
@@ -127,7 +131,7 @@ class JasperTagLib {
       }
         //Verify the 'format' attribute
         def availableFormats = ["PDF", "HTML", "XML", "CSV", "XLS", "RTF", "TEXT","ODT","ODS","DOCX","XLSX","PPTX"]
-        attrs.format.toUpperCase().split(",").each {
+        attrs.format.toUpperCase().split(",").each { String it ->
             if (!availableFormats.contains(it.trim())) {
                 // TODO more appropriate Exception type
                 throw new Exception(message(code: "jasper.taglib.invalidFormatAttribute", args: ["${it}", "${availableFormats}"]))
@@ -136,16 +140,23 @@ class JasperTagLib {
     }
 
 //Beginning of the new Tags added at plugin version 0.9.5
-    @Deprecated
-    def jasperForm = {attrs, body ->
+    /* The jasperForm tag works the same way as the jasperReport tag, but gives you more control over how the form is rendered in HTML.
+     * Use the jasperButton tag inside a jasperForm to submit and generate the report.
+     * Note that this tag should not be nested with a &lt;form&gt; element, as it uses a &lt;form&gt; element in its implementation, and nesting of &lt;form&gt;s is not allowed.
+     * 
+     * @attr jasper - REQUIRED filepath, relative to your configured report folder, of the report, no file extension needed.
+     * @attr controller - REQUIRED The controller the form will submit to.
+     * @attr action - REQUIRED The action the form will submit to.
+     * @attr id - OPTIONAL The id attribute for the form.
+     * @attr class - OPTIONAL Style class to use for the form. The default is "jasperReport".
+     */
+    def jasperForm = {GroovyPageAttributes attrs, body ->
         if(!attrs['jasper']) {
             throw new Exception(message(code:"jasper.taglib.missingAttribute", args:'jasper'))
         }
 
         String jasperName = attrs['jasper']
         String jasperNameNoPunct = jasperName.replaceAll(/[^a-zA-Z0-9]/, '')
-        String appPath = grailsAttributes.getApplicationUri(request)
-        String webAppPath = appPath + pluginContextPath
         String id = attrs['id'] ?: ""
         String reportName = attrs['name'] ?: ""
         String formClass = attrs['class'] ?: "jasperReport"
@@ -153,7 +164,7 @@ class JasperTagLib {
         String action = attrs['action'] ?: ""
 
         out << """
-            <form class="${formClass}" name="${jasperName}" action="${appPath}/${controller}/${action}/${id}">
+            <form class="${formClass}" name="${jasperName}" action="${g.createLink(controller: controller, action: action, id: id)}">
             <input type="hidden" name="_format" />
             <input type="hidden" name="_name" value="${reportName}" />
             <input type="hidden" name="_file" value="${jasperName}" />
@@ -166,8 +177,14 @@ class JasperTagLib {
     }
 
     //One button for each type of output you would like to make available.
-    @Deprecated
-    def jasperButton = {attrs ->
+    /* The jasperForm-Tag works the same way as the jasperReport tag, but gives you more control over how the form is rendered in HTML.
+     * Use the jasperButton-Tag inside a jasperForm to submit and generate the report.
+     * 
+     * @attr format - REQUIRED The name of the supported output format. ex. 'pdf' or 'PDF'.
+     * @attr class - OPTIONAL Class of the element in addition to default.
+     * @attr text - OPTIONAL Text to be included next to button ex. 'print'.
+     */
+    def jasperButton = {GroovyPageAttributes attrs ->
         if(!attrs['format']){throw new Exception(message(code:"jasper.taglib.missingAttribute", args:'format'))}
         String buttonClass = attrs['class']
         String format = attrs['format'].toUpperCase()

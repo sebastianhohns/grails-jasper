@@ -45,7 +45,7 @@ class JasperTagLibTests extends JasperPluginTestCase {
      */
     void testJasperPluginTag_Link_Minimal_PDF() {
         def template = '<g:jasperReport format="pdf" jasper="myreport"/>'
-        assertOutputEquals squeezeWhitespace("""| <a class="jasperButton" title="PDF" href="/myapp/jasper/?_format=PDF&amp;_name=&amp;_file=myreport">
+        assertOutputEquals squeezeWhitespace("""| <a class="jasperButton" title="PDF" href="/myapp/jasper/index?_format=PDF&_name=&_file=myreport">
         <img border="0" alt="PDF" src="/myapp/images/icons/PDF.gif" /></a> |"""), template, [:], transformSqueezeWhitespace
     }
 
@@ -54,7 +54,7 @@ class JasperTagLibTests extends JasperPluginTestCase {
      */
     void testJasperPluginTag_Link_Minimal_PDF_NoDelimiters() {
         def template = '<g:jasperReport format="pdf" jasper="myreport" name="The Report" delimiter=" "/>'
-        assertOutputEquals squeezeWhitespace("""<a class="jasperButton" title="PDF" href="/myapp/jasper/?_format=PDF&amp;_name=The Report&amp;_file=myreport">
+        assertOutputEquals squeezeWhitespace("""<a class="jasperButton" title="PDF" href="/myapp/jasper/index?_format=PDF&_name=The+Report&_file=myreport">
         <img border="0" alt="PDF" src="/myapp/images/icons/PDF.gif" /></a>  <strong>The Report</strong>"""), template, [:], transformSqueezeWhitespace
     }
 
@@ -63,8 +63,8 @@ class JasperTagLibTests extends JasperPluginTestCase {
      */
     void testJasperPluginTag_Link_Minimal_PDF_RTF_NoDelimiters() {
         def template = '<g:jasperReport format="pdf, rtf" jasper="myreport" name="The Report" delimiter=" "/>'
-        assertOutputEquals squeezeWhitespace("""<a class="jasperButton" title="PDF" href="/myapp/jasper/?_format=PDF&amp;_name=The Report&amp;_file=myreport">
-        <img border="0" alt="PDF" src="/myapp/images/icons/PDF.gif" /></a>  <a class="jasperButton" title="RTF" href="/myapp/jasper/?_format=RTF&amp;_name=The Report&amp;_file=myreport">
+        assertOutputEquals squeezeWhitespace("""<a class="jasperButton" title="PDF" href="/myapp/jasper/index?_format=PDF&_name=The+Report&_file=myreport">
+        <img border="0" alt="PDF" src="/myapp/images/icons/PDF.gif" /></a>  <a class="jasperButton" title="RTF" href="/myapp/jasper/index?_format=RTF&_name=The+Report&_file=myreport">
         <img border="0" alt="RTF" src="/myapp/images/icons/RTF.gif" /></a>  <strong>The Report</strong>"""), template, [:], transformSqueezeWhitespace
     }
 
@@ -74,7 +74,7 @@ class JasperTagLibTests extends JasperPluginTestCase {
     void testJasperPluginTag_Link_Name() {
         def template = '<g:jasperReport format="pdf" jasper="myreport" name="Print as PDF"/>'
         assertOutputEquals squeezeWhitespace("""|
-        <a class="jasperButton" title="PDF" href="/myapp/jasper/?_format=PDF&amp;_name=Print as PDF&amp;_file=myreport">
+        <a class="jasperButton" title="PDF" href="/myapp/jasper/index?_format=PDF&_name=Print+as+PDF&_file=myreport">
         <img border="0" alt="PDF" src="/myapp/images/icons/PDF.gif" /></a> | <strong>Print as PDF</strong>"""), template, [:], transformSqueezeWhitespace
     }
 
@@ -84,7 +84,7 @@ class JasperTagLibTests extends JasperPluginTestCase {
     void testJasperPluginTag_Link_Description() {
         def template = '<g:jasperReport format="pdf" jasper="myreport" description="Print as PDF"/>'
         assertOutputEquals squeezeWhitespace("""|
-        <a class="jasperButton" title="PDF" href="/myapp/jasper/?_format=PDF&amp;_name=&amp;_file=myreport">
+        <a class="jasperButton" title="PDF" href="/myapp/jasper/index?_format=PDF&_name=&_file=myreport">
         <img border="0" alt="PDF" src="/myapp/images/icons/PDF.gif" /></a> | Print as PDF"""), template, [:], transformSqueezeWhitespace
     }
 
@@ -94,7 +94,7 @@ class JasperTagLibTests extends JasperPluginTestCase {
     void testJasperPluginTag_Form() {
         def template = '<g:jasperReport format="pdf" jasper="myreport">A Body</g:jasperReport>'
         assertOutputEquals squeezeWhitespace(SCRIPT_PART + """
-        <form class="jasperReport" name="myreport" action="/myapp/jasper/"><input type="hidden" name="_format" />
+        <form class="jasperReport" name="myreport" action="/myapp/jasper/index"><input type="hidden" name="_format" />
           <input type="hidden" name="_name" value="" />
           <input type="hidden" name="_file" value="myreport" />
         | <a href="#" class="jasperButton" title="PDF" onclick="return submit_myreport(this)">

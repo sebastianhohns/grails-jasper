@@ -33,13 +33,15 @@ import net.sf.jasperreports.engine.export.JRXlsExporterParameter
 import net.sf.jasperreports.engine.util.JRProperties
 
 import org.springframework.core.io.Resource
+import org.springframework.transaction.annotation.Transactional
 
 /**
  * Generates Jasper reports. Call one of the three generateReport methods to
  * get a ByteArrayOutputStream with the generated report.
  * @author Sebastian Hohns
  */
- class JasperService {
+@Transactional(readOnly = true)
+class JasperService {
 
     def dataSource
 

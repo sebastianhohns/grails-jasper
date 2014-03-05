@@ -9,7 +9,7 @@ before_script:
 script: ./grailsw refresh-dependencies --non-interactive
   && ./grailsw test-app --non-interactive
   && ./grailsw package-plugin --non-interactive
-  && if [[ $TRAVIS_BRANCH == 'master' ]]; then ./grailsw publish-plugin --no-scm --allow-overwrite --non-interactive ; else echo "Not on master branch, so not publishing"; fi
+  && if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_REPO_SLUG == 'candrews/grails-jasper' ]]; then ./grailsw publish-plugin --no-scm --allow-overwrite --non-interactive ; else echo "Not on master branch, so not publishing"; fi
 env:
   global:
   # travis encrypt -a env.global 'GRAILS_CENTRAL_USERNAME=myusername'

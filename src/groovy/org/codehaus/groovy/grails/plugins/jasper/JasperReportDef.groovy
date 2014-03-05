@@ -19,8 +19,7 @@ package org.codehaus.groovy.grails.plugins.jasper
 import net.sf.jasperreports.engine.JasperPrint
 
 import org.apache.commons.io.FilenameUtils
-import org.codehaus.groovy.grails.commons.ApplicationHolder
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import grails.util.Holders
 import org.springframework.core.io.FileSystemResource
 import org.springframework.core.io.Resource
 
@@ -77,7 +76,7 @@ class JasperReportDef implements Serializable {
   JasperPrint jasperPrinter
 
   private getApplicationContext() {
-    return ApplicationHolder.application.mainContext
+    return Holders.grailsApplication.mainContext
   }
 
   /**
@@ -122,8 +121,8 @@ class JasperReportDef implements Serializable {
     if (folder) {
       return folder + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
     }
-    if (ConfigurationHolder.config.jasper.dir.reports) {
-      return ConfigurationHolder.config.jasper.dir.reports + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
+    if (Holders.config.jasper.dir.reports) {
+      return Holders.config.jasper.dir.reports + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
     }
     return "/reports" + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
   }

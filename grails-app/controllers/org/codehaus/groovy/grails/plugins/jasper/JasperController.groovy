@@ -29,7 +29,7 @@ class JasperController {
 
     @Deprecated
     def index = {
-        def testModel = getProperties().containsKey('chainModel') ? chainModel : null
+        def testModel = this.getProperties().containsKey('chainModel') ? chainModel : null
         addImagesURIIfHTMLReport(params, request.contextPath)
         JasperReportDef report = jasperService.buildReportDefinition(params, request.getLocale(), testModel)
         addJasperPrinterToSession(request.getSession(), report.jasperPrinter)

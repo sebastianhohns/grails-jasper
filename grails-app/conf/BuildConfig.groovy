@@ -25,7 +25,7 @@ grails.project.dependency.resolution = {
                      'bcmail-jdk14','bcprov-jdk14','bctsp-jdk14','xmlbeans'
         }
 
-        compile('org.apache.poi:poi:3.9')
+        compile('org.apache.poi:poi:3.10-FINAL')
     }
 
     plugins {

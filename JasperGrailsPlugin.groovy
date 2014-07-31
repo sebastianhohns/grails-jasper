@@ -1,5 +1,5 @@
 class JasperGrailsPlugin {
-    def version = "1.9.0-SNAPSHOT"
+    def version = "1.9.0"
     def grailsVersion = "2.1.0 > *"
     def author = "Craig Andrews"
     def authorEmail = "candrews@integralblue.com"

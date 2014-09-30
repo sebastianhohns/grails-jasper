@@ -21,6 +21,7 @@
 import java.lang.reflect.Field
 import java.sql.Connection
 
+import net.sf.jasperreports.engine.JRDataSource
 import net.sf.jasperreports.engine.JRExporter
 import net.sf.jasperreports.engine.JRExporterParameter
 import net.sf.jasperreports.engine.JasperCompileManager
@@ -226,15 +227,19 @@ class JasperService {
     private JasperPrint generatePrinter(JasperReportDef reportDef) {
         JasperPrint jasperPrint
         Resource resource = reportDef.getReport()
+        JRDataSource jrDataSource = reportDef.dataSource
 
-        if (reportDef.reportData != null && !reportDef.reportData.isEmpty()) {
-            JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(reportDef.reportData)
+        if (jrDataSource == null && reportDef.reportData != null && !reportDef.reportData.isEmpty()) {
+            jrDataSource = new JRBeanCollectionDataSource(reportDef.reportData)
+        }
+
+        if (jrDataSource != null) {
             if (resource.getFilename().endsWith('.jasper')) {
-                jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters, jrBeanCollectionDataSource)
+                jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters, jrDataSource)
             }
             else {
                 forceTempFolder()
-                jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters, jrBeanCollectionDataSource)
+                jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters, jrDataSource)
             }
         }
         else {

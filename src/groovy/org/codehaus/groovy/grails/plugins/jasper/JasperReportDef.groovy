@@ -16,6 +16,7 @@
 
 package org.codehaus.groovy.grails.plugins.jasper
 
+import net.sf.jasperreports.engine.JRDataSource
 import net.sf.jasperreports.engine.JasperPrint
 
 import org.apache.commons.io.FilenameUtils
@@ -52,6 +53,13 @@ class JasperReportDef implements Serializable {
    * This is a list of java beans.
    */
   Collection reportData
+
+  /**
+   * The actual data source used to fill the report.
+   * <p>
+   * This is an implementation of {@link JRDataSource}.
+   */
+  JRDataSource dataSource
 
   /**
    * The target file format.

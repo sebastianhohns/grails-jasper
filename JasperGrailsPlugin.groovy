@@ -1,6 +1,6 @@
 class JasperGrailsPlugin {
-    def version = "2.4.4"
-    def grailsVersion = "2.1.0 > *"
+    def version = "1.12.0"
+    def grailsVersion = "2.4.4 > *"
 
     def developers = [
             [name: "Sebastian Hohns", email: "sebastian.hohns@googlemail.com"]]

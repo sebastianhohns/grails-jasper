@@ -21,7 +21,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
        compile('net.sf.jasperreports:jasperreports:5.1.0') {
-           excludes 'antlr', 'commons-beanutils', 'commons-collections', 'commons-logging',
+           excludes 'antlr', 'commons-logging',
                    'ant', 'mondrian', 'commons-javaflow','barbecue', 'xml-apis-ext','xml-apis', 'xalan', 'groovy-all', 'hibernate', 'saaj-api', 'servlet-api',
                    'xercesImpl','xmlParserAPIs','spring-core','bsh', 'spring-beans', 'jaxen', 'barcode4j','batik-svg-dom','batik-xml','batik-awt-util','batik-dom',
                    'batik-css','batik-gvt','batik-script', 'batik-svggen','batik-util','batik-bridge','persistence-api','jdtcore','bcmail-jdk16','bcprov-jdk16','bctsp-jdk16',
@@ -32,10 +32,10 @@ grails.project.dependency.resolution = {
     }
     plugins{
         if (appName == "jasper") {
-            compile (":hibernate:$grailsVersion") {
+            compile (":hibernate:3.6.10.18") {
                 export = false
             }
-            build(":tomcat:$grailsVersion",":maven-publisher:0.8.1") {
+            build(":tomcat:7.0.55",":maven-publisher:0.8.1") {
                 export = false
             }
         }

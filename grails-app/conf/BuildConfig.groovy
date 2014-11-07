@@ -18,7 +18,7 @@ grails.project.dependency.resolution = {
         compile('com.lowagie:itext:2.1.7')
 
         compile('net.sf.jasperreports:jasperreports:5.6.1') {
-            excludes 'antlr', 'commons-beanutils', 'commons-collections', 'commons-logging',
+            excludes 'antlr', 'commons-logging',
                      'ant', 'mondrian', 'commons-javaflow','barbecue', 'xml-apis-ext','xml-apis', 'xalan', 'groovy-all', 'hibernate', 'saaj-api', 'servlet-api',
                      'xercesImpl','xmlParserAPIs','spring-core','bsh', 'spring-beans', 'jaxen', 'barcode4j','batik-svg-dom','batik-xml','batik-awt-util','batik-dom',
                      'batik-css','batik-gvt','batik-script', 'batik-svggen','batik-util','batik-bridge','persistence-api','jdtcore','bcmail-jdk16','bcprov-jdk16','bctsp-jdk16',

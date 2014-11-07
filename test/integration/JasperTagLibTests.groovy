@@ -104,7 +104,7 @@ class JasperTagLibTests extends JasperPluginTestCase {
 
     // TODO passing thru ID and CLASS attributes
 
-    protected void setUp() {
+    public void setUp() {
         super.setUp()
         RequestContextHolder.currentRequestAttributes().currentRequest."${WebUtils.INCLUDE_CONTEXT_PATH_ATTRIBUTE}" = '/myapp'
     }

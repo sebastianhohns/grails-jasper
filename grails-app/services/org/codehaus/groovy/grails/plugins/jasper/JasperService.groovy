@@ -11,32 +11,43 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 
  package org.codehaus.groovy.grails.plugins.jasper
 
- import java.lang.reflect.Field
- import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
- import net.sf.jasperreports.engine.export.JRHtmlExporterParameter
- import net.sf.jasperreports.engine.export.JRTextExporterParameter
- import net.sf.jasperreports.engine.export.JRXlsExporterParameter
- import net.sf.jasperreports.engine.util.JRProperties
- import org.springframework.core.io.Resource
- import net.sf.jasperreports.engine.*
  import groovy.sql.Sql
 
-/*
- * Grails service to generate jasper reports. Call one of the three generateReport methods to
+import java.lang.reflect.Field
+import java.sql.Connection
+
+import net.sf.jasperreports.engine.JRDataSource
+import net.sf.jasperreports.engine.JRExporter
+import net.sf.jasperreports.engine.JRExporterParameter
+import net.sf.jasperreports.engine.JasperCompileManager
+import net.sf.jasperreports.engine.JasperFillManager
+import net.sf.jasperreports.engine.JasperPrint
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
+import net.sf.jasperreports.engine.export.JRHtmlExporterParameter
+import net.sf.jasperreports.engine.export.JRTextExporterParameter
+import net.sf.jasperreports.engine.export.JRXlsExporterParameter
+import net.sf.jasperreports.engine.util.JRProperties
+
+import org.springframework.core.io.Resource
+import org.springframework.transaction.annotation.Transactional
+
+/**
+ * Generates Jasper reports. Call one of the three generateReport methods to
  * get a ByteArrayOutputStream with the generated report.
  * @author Sebastian Hohns
  */
- class JasperService {
+@Transactional(readOnly = true)
+class JasperService {
 
     def dataSource
-    static transactional = true
 
-    final boolean FORCE_TEMP_FOLDER = false;
+    static final boolean FORCE_TEMP_FOLDER = false
+
     /**
      * Build a JasperReportDef form a parameter map. This is used by the taglib.
      * @param parameters
@@ -44,7 +55,7 @@
      * @param testModel
      * @return reportDef
      */
-     public JasperReportDef buildReportDefinition(parameters, locale, testModel) {
+    JasperReportDef buildReportDefinition(parameters, locale, testModel) {
         JasperReportDef reportDef = new JasperReportDef(name: parameters._file, parameters: parameters,locale: locale)
 
         reportDef.fileFormat = JasperExportFormat.determineFileFormat(parameters._format)
@@ -56,40 +67,39 @@
     }
 
     private Collection getReportData(testModel, parameters) {
-        Collection reportData = null
+        Collection reportData
 
         if (testModel?.data) {
             try {
                 reportData = testModel.data
+            } catch (Throwable e) {
+                throw new Exception("Expected chainModel.data parameter to be a Collection, but it was ${chainModel.data.class.name}", e)
+            }
+        } else {
+            testModel = getProperties().containsKey('model') ? model : null
+            if (testModel?.data) {
+                try {
+                    reportData = testModel.data
                 } catch (Throwable e) {
-                    throw new Exception("Expected chainModel.data parameter to be a Collection, but it was ${chainModel.data.class.name}", e)
+                    throw new Exception("Expected model.data parameter to be a Collection, but it was ${model.data.class.name}", e)
                 }
-                } else {
-                    testModel = this.getProperties().containsKey('model') ? model : null
-                    if (testModel?.data) {
-                        try {
-                            reportData = testModel.data
-                            } catch (Throwable e) {
-                                throw new Exception("Expected model.data parameter to be a Collection, but it was ${model.data.class.name}", e)
-                            }
-                            } else if (parameters?.data) {
-                                try {
-                                    reportData = parameters.data
-                                    } catch (Throwable e) {
-                                        throw new Exception("Expected data parameter to be a Collection, but it was ${parameters.data.class.name}", e)
-                                    }
-                                }
-                            }
+            } else if (parameters?.data) {
+                try {
+                    reportData = parameters.data
+                } catch (Throwable e) {
+                    throw new Exception("Expected data parameter to be a Collection, but it was ${parameters.data.class.name}", e)
+                }
+            }
+        }
 
-                            return reportData
-                        }
+        return reportData
+    }
 
-                        @Deprecated
-                        public ByteArrayOutputStream generateReport(String jasperReportDir, JasperExportFormat format, Collection reportData, Map parameters) {
-                            JasperReportDef reportDef = new JasperReportDef(name: parameters._file, folder: jasperReportDir, reportData: reportData, fileFormat: format, parameters: parameters)
-
-                            return generateReport(reportDef)
-                        }
+    @Deprecated
+    ByteArrayOutputStream generateReport(String jasperReportDir, JasperExportFormat format, Collection reportData, Map parameters) {
+        JasperReportDef reportDef = new JasperReportDef(name: parameters._file, folder: jasperReportDir, reportData: reportData, fileFormat: format, parameters: parameters)
+        return generateReport(reportDef)
+    }
 
     /**
      * Generate a report based on a single jasper file.
@@ -97,7 +107,7 @@
      * @param reportDef , jasper report object
      * return ByteArrayOutStreamByteArrayOutStream with the generated Report
      */
-     public ByteArrayOutputStream generateReport(JasperReportDef reportDef) {
+    ByteArrayOutputStream generateReport(JasperReportDef reportDef) {
         ByteArrayOutputStream byteArray = new ByteArrayOutputStream()
         JRExporter exporter = generateExporter(reportDef)
 
@@ -122,17 +132,14 @@
      * @param parameters , additional parameters
      * return ByteArrayOutStream with the generated Report
      */
-     public ByteArrayOutputStream generateReport(List<JasperReportDef> reports) {
+    ByteArrayOutputStream generateReport(List<JasperReportDef> reports) {
         ByteArrayOutputStream byteArray = new ByteArrayOutputStream()
         JRExporter exporter = generateExporter(reports.first())
 
         exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArray)
         exporter.setParameter(JRExporterParameter.CHARACTER_ENCODING, "UTF-8")
 
-        def printers = []
-        for (report in reports) {
-            printers << generatePrinter(report)
-        }
+        def printers = reports.collect { report -> generatePrinter(report) }
         exporter.setParameter(JRExporterParameter.JASPER_PRINT_LIST, printers)
 
         exporter.exportReport()
@@ -145,10 +152,10 @@
      * The user (however the app server is logged in) is much more likely to have read/write/delete rights here than the
      * default location that Jasper Reports uses.
      */
-     protected def forceTempFolder() {
+    protected void forceTempFolder() {
         /* TODO This is currently disabled, because it doesn't work. Jasper Reports seems to always use the current
-        * folder (.) no matter what.  (I'll be filing a bug report against Jasper Reports itself shortly - Craig Jones 16-Aug-2008)
-        */
+         * folder (.) no matter what.  (I'll be filing a bug report against Jasper Reports itself shortly - Craig Jones 16-Aug-2008)
+         */
         if (FORCE_TEMP_FOLDER) {
             // Look up the home folder explicitly (don't trust that tilde notation will work).
             String userHomeDir = System.getProperty('user.home')
@@ -179,7 +186,7 @@
      * @param reportDef
      * @return JRExporter
      */
-     private JRExporter generateExporter(JasperReportDef reportDef) {
+    private JRExporter generateExporter(JasperReportDef reportDef) {
         if (reportDef.parameters.SUBREPORT_DIR == null) {
             reportDef.parameters.SUBREPORT_DIR = reportDef.getFilePath()
         }
@@ -187,29 +194,29 @@
         if (reportDef.parameters.locale) {
             if (reportDef.parameters.locale instanceof String) {
                 reportDef.parameters.REPORT_LOCALE = getLocaleFromString(reportDef.parameters.locale)
-                } else if (reportDef.parameters.locale instanceof Locale) {
-                    reportDef.parameters.REPORT_LOCALE = reportDef.parameters.locale
-                }
-                } else if (reportDef.locale) {
-                    reportDef.parameters.REPORT_LOCALE = reportDef.locale
-                    } else {
-                        reportDef.parameters.REPORT_LOCALE = Locale.getDefault()
-                    }
+            } else if (reportDef.parameters.locale instanceof Locale) {
+                reportDef.parameters.REPORT_LOCALE = reportDef.parameters.locale
+            }
+        } else if (reportDef.locale) {
+            reportDef.parameters.REPORT_LOCALE = reportDef.locale
+        } else {
+            reportDef.parameters.REPORT_LOCALE = Locale.getDefault()
+        }
 
-                    JRExporter exporter = JasperExportFormat.getExporter(reportDef.fileFormat)
-                    Field[] fields = JasperExportFormat.getExporterFields(reportDef.fileFormat)
+        JRExporter exporter = JasperExportFormat.getExporter(reportDef.fileFormat)
+        Field[] fields = JasperExportFormat.getExporterFields(reportDef.fileFormat)
 
-                    Boolean useDefaultParameters = reportDef.parameters.useDefaultParameters.equals("true")
-                    if (useDefaultParameters) {
-                        applyDefaultParameters(exporter, reportDef.fileFormat)
-                    }
+        Boolean useDefaultParameters = reportDef.parameters.useDefaultParameters.equals("true")
+        if (useDefaultParameters) {
+            applyDefaultParameters(exporter, reportDef.fileFormat)
+        }
 
-                    if (fields) {
-                        applyCustomParameters(fields, exporter, reportDef.parameters)
-                    }
+        if (fields) {
+            applyCustomParameters(fields, exporter, reportDef.parameters)
+        }
 
-                    return exporter
-                }
+        return exporter
+    }
 
     /**
      * Generate a JasperPrint object for a given report.
@@ -217,29 +224,33 @@
      * @param parameters , additional parameters
      * @return JasperPrint , jasperreport printer
      */
-     private JasperPrint generatePrinter(JasperReportDef reportDef) {
+    private JasperPrint generatePrinter(JasperReportDef reportDef) {
         JasperPrint jasperPrint
         Resource resource = reportDef.getReport()
+        JRDataSource jrDataSource = reportDef.dataSource
 
-        if (reportDef.reportData != null && !reportDef.reportData.isEmpty()) {
-            JRBeanCollectionDataSource jrBeanCollectionDataSource = new JRBeanCollectionDataSource(reportDef.reportData);
+        if (jrDataSource == null && reportDef.reportData != null && !reportDef.reportData.isEmpty()) {
+            jrDataSource = new JRBeanCollectionDataSource(reportDef.reportData)
+        }
+
+        if (jrDataSource != null) {
             if (resource.getFilename().endsWith('.jasper')) {
-                jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters, jrBeanCollectionDataSource)
-            } 
+                jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters, jrDataSource)
+            }
             else {
                 forceTempFolder()
-                jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters, jrBeanCollectionDataSource)
+                jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters, jrDataSource)
             }
-        } 
+        }
         else {
 
             Sql sql = new Sql(dataSource)
-            java.sql.Connection connection = dataSource?.getConnection()
+            Connection connection = dataSource?.getConnection()
 
             try {
                 if (resource.getFilename().endsWith('.jasper')) {
                     jasperPrint = JasperFillManager.fillReport(resource.inputStream, reportDef.parameters, connection)
-                } 
+                }
                 else {
                     forceTempFolder()
                     jasperPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(resource.inputStream), reportDef.parameters,  connection)
@@ -247,6 +258,7 @@
             }
             finally {
                 sql.close()
+                connection.close()
             }
         }
 
@@ -260,13 +272,13 @@
      * @param exporter , the exporter object
      * @param parameter , the parameters to apply
      */
-     private void applyCustomParameters(Field[] fields, JRExporter exporter, Map<String, Object> parameters) {
+    private void applyCustomParameters(Field[] fields, JRExporter exporter, Map<String, Object> parameters) {
         def fieldNames = fields.collect {it.getName()}
 
         parameters.each { p ->
             if (fieldNames.contains(p.getKey())) {
                 def fld = Class.forName(fields.find {it.name = p.getKey()}.clazz.name).getField(p.getKey())
-                exporter.setParameter(fld.get(fld.root.class), p.getValue());
+                exporter.setParameter(fld.get(fld.root.class), p.getValue())
             }
         }
     }
@@ -276,16 +288,16 @@
      * @param exporter , the JRExporter
      * @param format , the target file format
      */
-     private void applyDefaultParameters(JRExporter exporter, JasperExportFormat format) {
+    private void applyDefaultParameters(JRExporter exporter, JasperExportFormat format) {
         switch (format) {
             case JasperExportFormat.HTML_FORMAT:
-            exporter.setParameter(JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN, Boolean.FALSE)
+            exporter.setParameter(JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN, false)
             break
             case JasperExportFormat.XLS_FORMAT:
-            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, Boolean.TRUE);
-            exporter.setParameter(JRXlsExporterParameter.IS_AUTO_DETECT_CELL_TYPE, Boolean.TRUE);
-            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
-            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+            exporter.setParameter(JRXlsExporterParameter.IS_ONE_PAGE_PER_SHEET, true)
+            exporter.setParameter(JRXlsExporterParameter.IS_AUTO_DETECT_CELL_TYPE, true)
+            exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, false)
+            exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, true)
             break
             case JasperExportFormat.TEXT_FORMAT:
             exporter.setParameter(JRTextExporterParameter.PAGE_WIDTH, 80)
@@ -300,31 +312,30 @@
      * @param localeString , a string
      * @returns Locale
      */
-     public static Locale getLocaleFromString(String localeString) {
+    static Locale getLocaleFromString(String localeString) {
         if (localeString == null) {
-            return null;
+            return null
         }
-        localeString = localeString.trim();
+        localeString = localeString.trim()
 
         // Extract language
-        int languageIndex = localeString.indexOf('_');
-        String language = null;
+        int languageIndex = localeString.indexOf('_')
+        String language
         if (languageIndex == -1) {  // No further "_" so is "{language}" only
-        return new Locale(localeString, "");
-        } else {
-            language = localeString.substring(0, languageIndex);
+            return new Locale(localeString, "")
         }
+        language = localeString.substring(0, languageIndex)
 
         // Extract country
-        int countryIndex = localeString.indexOf('_', languageIndex + 1);
-        String country = null;
+        int countryIndex = localeString.indexOf('_', languageIndex + 1)
+        String country
         if (countryIndex == -1) {     // No further "_" so is "{language}_{country}"
-        country = localeString.substring(languageIndex + 1);
-        return new Locale(language, country);
-        } else {   // Assume all remaining is the variant so is "{language}_{country}_{variant}"
-        country = localeString.substring(languageIndex + 1, countryIndex);
-        String variant = localeString.substring(countryIndex + 1);
-        return new Locale(language, country, variant);
+            country = localeString.substring(languageIndex + 1)
+            return new Locale(language, country)
+        }
+        // Assume all remaining is the variant so is "{language}_{country}_{variant}"
+        country = localeString.substring(languageIndex + 1, countryIndex)
+        String variant = localeString.substring(countryIndex + 1)
+        return new Locale(language, country, variant)
     }
-}
 }

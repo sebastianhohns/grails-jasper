@@ -11,20 +11,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 
 package org.codehaus.groovy.grails.plugins.jasper
 
-import org.apache.commons.io.FilenameUtils
-import org.codehaus.groovy.grails.commons.ApplicationHolder
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
-import org.springframework.core.io.Resource
-import org.springframework.core.io.FileSystemResource
-import net.sf.jasperreports.engine.JasperCompileManager
-
-import net.sf.jasperreports.engine.JasperReport
+import net.sf.jasperreports.engine.JRDataSource
 import net.sf.jasperreports.engine.JasperPrint
+
+import org.apache.commons.io.FilenameUtils
+import grails.util.Holders
+import org.springframework.core.io.FileSystemResource
+import org.springframework.core.io.Resource
 
 /**
  * An abstract representation of a Jasper report.
@@ -33,7 +31,7 @@ import net.sf.jasperreports.engine.JasperPrint
  * data(reportData and/or parameters) needed to fill the report.
  * @author Sebastian Hohns 2010
  */
-public class JasperReportDef implements Serializable{
+class JasperReportDef implements Serializable {
 
   /**
    * The name of the report file without extension.
@@ -57,9 +55,16 @@ public class JasperReportDef implements Serializable{
   Collection reportData
 
   /**
+   * The actual data source used to fill the report.
+   * <p>
+   * This is an implementation of {@link JRDataSource}.
+   */
+  JRDataSource dataSource
+
+  /**
    * The target file format.
    */
-  public JasperExportFormat fileFormat = JasperExportFormat.PDF_FORMAT;
+  JasperExportFormat fileFormat = JasperExportFormat.PDF_FORMAT
 
   /**
    * The generated report as OutputStream.
@@ -69,7 +74,7 @@ public class JasperReportDef implements Serializable{
   /**
    * Additional parameters.
    */
-  Map parameters = new HashMap()
+  Map parameters = [:]
 
   /**
    * Locale setting.
@@ -79,7 +84,7 @@ public class JasperReportDef implements Serializable{
   JasperPrint jasperPrinter
 
   private getApplicationContext() {
-    return ApplicationHolder.application.mainContext
+    return Holders.grailsApplication.mainContext
   }
 
   /**
@@ -89,7 +94,7 @@ public class JasperReportDef implements Serializable{
    * @return the report as Resource
    * @throws Exception , report file not found
    */
-  public Resource getReport() throws Exception {
+  Resource getReport() {
     String path = getFilePath()
 
     Resource result = getApplicationContext().getResource(path + ".jasper")
@@ -120,17 +125,17 @@ public class JasperReportDef implements Serializable{
    * the jasper.dir.reports setting. Defaults to /report.
    * @return full path to the report, without extension
    */
-  public String getFilePath() {
+  String getFilePath() {
     if (folder) {
       return folder + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
-    } else if (ConfigurationHolder.config.jasper.dir.reports) {
-      return ConfigurationHolder.config.jasper.dir.reports + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
-    } else {
-      return "/reports" + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
     }
+    if (Holders.config.jasper.dir.reports) {
+      return Holders.config.jasper.dir.reports + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
+    }
+    return "/reports" + File.separator + FilenameUtils.getPath(name) + FilenameUtils.getBaseName(name)
   }
 
-  public void setFilePath(String path) {
+  void setFilePath(String path) {
     folder = FilenameUtils.getPath(path)
     name = FilenameUtils.getName(path)
   }
@@ -140,7 +145,7 @@ public class JasperReportDef implements Serializable{
    * @param key , the key
    * @param value , the value
    */
-  public void addParameter(key, value) {
+  void addParameter(key, value) {
     parameters.put(key, value)
   }
 }

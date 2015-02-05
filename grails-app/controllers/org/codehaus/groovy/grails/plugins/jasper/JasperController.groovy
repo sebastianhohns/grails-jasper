@@ -11,17 +11,19 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  */
 
 package org.codehaus.groovy.grails.plugins.jasper
 
 import javax.servlet.http.HttpSession
+
 import net.sf.jasperreports.engine.JasperPrint
+import net.sf.jasperreports.j2ee.servlets.ImageServlet
 
 /*
-* @author mfpereira 2007
-*/
+ * @author mfpereira 2007
+ */
 class JasperController {
     JasperService jasperService
 
@@ -39,25 +41,22 @@ class JasperController {
      */
     def generateResponse = {reportDef ->
         if (!reportDef.fileFormat.inline && !reportDef.parameters._inline) {
-            response.setHeader("Content-disposition", "attachment; filename=" + (reportDef.parameters._name ?: reportDef.name) + "." + reportDef.fileFormat.extension);
+            response.setHeader("Content-disposition", "attachment; filename=" + (reportDef.parameters._name ?: reportDef.name) + "." + reportDef.fileFormat.extension)
             response.contentType = reportDef.fileFormat.mimeTyp
             response.characterEncoding = "UTF-8"
             response.outputStream << reportDef.contentStream.toByteArray()
         } else {
-            render(text: reportDef.contentStream, contentType: reportDef.fileFormat.mimeTyp, encoding: reportDef.parameters.encoding ? reportDef.parameters.encoding : 'UTF-8');
+            render(text: reportDef.contentStream, contentType: reportDef.fileFormat.mimeTyp, encoding: reportDef.parameters.encoding ? reportDef.parameters.encoding : 'UTF-8')
         }
     }
 
-    private def addJasperPrinterToSession(HttpSession session, JasperPrint jasperPrinter) {
-        session.setAttribute(
-                net.sf.jasperreports.j2ee.servlets.ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE,
-                jasperPrinter)
+    private void addJasperPrinterToSession(HttpSession session, JasperPrint jasperPrinter) {
+        session[ImageServlet.DEFAULT_JASPER_PRINT_SESSION_ATTRIBUTE] = jasperPrinter
     }
 
-    private def addImagesURIIfHTMLReport(Map parameters, String contextPath) {
+    private void addImagesURIIfHTMLReport(Map parameters, String contextPath) {
         if (JasperExportFormat.HTML_FORMAT == JasperExportFormat.determineFileFormat(parameters._format)) {
-            parameters.put("IMAGES_URI", "${contextPath}/reports/image?image=")
+            parameters.IMAGES_URI = "${contextPath}/reports/image?image="
         }
     }
 }
-

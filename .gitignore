@@ -1,0 +1,20 @@
+# Eclipse
+.classpath
+.project
+.settings/
+target-eclipse/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+target
+*.log
+*.zip
+plugin.xml
+/docs/
+.DS_Store
+
+# used by Grails normally, but not by this plugin. Grails keeps creating the directory, but since we don't use or want it, ignore it.
+web-app/WEB-INF/
